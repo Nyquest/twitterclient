@@ -42,7 +42,6 @@ public class MainActivity extends Activity implements IResponseWrapperHandler,II
 	private SharedPreferences prefs;
 	private TextView tvUser;
 	private TextView tvTweets;
-	private String currentUserName;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +142,6 @@ public class MainActivity extends Activity implements IResponseWrapperHandler,II
 			try {
 				AccountSettings accountSettings = AccountSettings.parse(json);
 				String userName = accountSettings.getScreenName();
-				currentUserName = userName;
 				Log.d(TAG, "Current user: " + userName);
 				showTweets(userName);
 			} catch (JSONException e) {
@@ -174,7 +172,7 @@ public class MainActivity extends Activity implements IResponseWrapperHandler,II
 			
 			break;
 		case NEW_TWEET:
-			showTweets(currentUserName);			
+			showTweets();			
 			break;
 		default:
 			throw new RuntimeException("Handler is not defined");	
