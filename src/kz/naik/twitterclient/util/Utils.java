@@ -47,7 +47,7 @@ public class Utils {
 			Log.v("status", "ONLINE");
 			return true;
 		}else{
-			Log.v("status","ONLINE");
+			Log.v("status","OFFLINE");
 			return false;
 		}
 	}
